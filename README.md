@@ -2,8 +2,8 @@ sudoku-terminator
 ----
 
 ### demo
-![](examples/aishack.jpg)
-![](examples/aishack.solution.jpg)
+<img src="examples/aishack.jpg" width="400"> <img src="examples/aishack.solution.jpg" width="434">
+
 
 ### usage
 1. prepare virtual env `pipenv install`
