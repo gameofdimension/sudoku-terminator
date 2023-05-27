@@ -1,0 +1,17 @@
+[[source]]
+url = "https://mirrors.aliyun.com/pypi/simple/"
+name = "aliyun"
+
+[dev-packages]
+
+[packages]
+imutils = "==0.5.4"
+scikit-image = "==0.20.0"
+py-sudoku = "==1.0.3"
+paddlepaddle = "==2.3.2"
+paddleocr = ">=2.0.1"
+loguru = "==0.7.0"
+paddleclas = "==2.5.1"
+
+[requires]
+python_version = "3.9"
