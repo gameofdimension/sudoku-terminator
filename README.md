@@ -8,7 +8,7 @@ sudoku-terminator
 
 ### usage
 1. prepare virtual env `pipenv install`
-2. run solver `python app.py --image-path=examples/sudoku_puzzle.jpg`. it might take a long time for the first run
+2. run solver `python app.py --image-path=examples/aishack.jpg`. it might take a long time for the first run
 
 ### thanks
 1. pyimagesearch.com for image processing
