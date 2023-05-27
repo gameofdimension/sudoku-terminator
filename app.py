@@ -16,5 +16,7 @@ if __name__ == '__main__':
     if result is None:
         logger.error(f"solving puzzle fail")
     else:
-        cv2.imshow(f"sudoku solution", result)
+        window_name = "sudoku solution"
+        cv2.imshow(window_name, result)
+        cv2.setWindowProperty(window_name, cv2.WND_PROP_TOPMOST, 1)
         cv2.waitKey(0)
