@@ -81,7 +81,6 @@ class StructuralSolver:
 
         logger.debug("will draw back")
         puzzle_image = imutils.resize(puzzle_image, width=450)
-        cv2.imwrite("/Users/yzq/Work/github/oh-my-sudoku/fx.jpg", puzzle_image)
         cell_locs = self.make_cell_locs(puzzle_image)
         out = draw_back(cell_locs, board, solution, puzzle_image)
         return out
