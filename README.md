@@ -2,7 +2,8 @@ sudoku-terminator
 ----
 
 ### demo
-<img src="examples/aishack.jpg" width="400"> <img src="examples/aishack.solution.jpg" width="434">
+<img src="examples/aishack.jpg" width="350">
+<img src="examples/aishack.solution.jpg" width="350">
 
 
 ### usage
