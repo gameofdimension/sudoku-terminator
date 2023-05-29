@@ -8,7 +8,12 @@ from loguru import logger
 
 from lucky.helper import adjust_orientation
 from paddle_model.model import PaddleModel
-from pyimagesearch.puzzle import parse_image, build_solver, draw_back
+from pyimagesearch.puzzle import (
+    parse_image,
+    build_solver,
+    draw_back,
+    robust_find_puzzle
+)
 
 
 class StructuralSolver:
@@ -62,12 +67,14 @@ class StructuralSolver:
             tmp2 = cv2.rotate(tmp2, cv2.ROTATE_90_CLOCKWISE)
         return None, tmp1, tmp2
 
-    def try_solve(self, img, debug=False):
+    def try_solve(self, img, debug):
         logger.debug("will parse image")
         found, puzzle_image, warped = parse_image(img, debug=debug)
         if found:
             puzzle_image, warped = adjust_orientation(self._paddle, puzzle_image, warped)
+        return self.process(puzzle_image, warped, debug)
 
+    def process(self, puzzle_image, warped, debug):
         board, puzzle_image, warped = self.try_build_board(puzzle_image, warped, debug)
         if board is None:
             return None
@@ -85,6 +92,15 @@ class StructuralSolver:
         out = draw_back(cell_locs, board, solution, puzzle_image)
         return out
 
+    def try_solve_ndarray(self, image, debug):
+        found, puzzle_image, warped = robust_find_puzzle(image, debug)
+        if found:
+            puzzle_image, warped = adjust_orientation(self._paddle, puzzle_image, warped)
+        return self.process(puzzle_image, warped, debug)
+
     def run(self, img, debug=False):
         res = self.try_solve(img, debug=debug)
         return res
+
+    def run_ndarray(self, image: np.ndarray, debug=False):
+        return self.try_solve_ndarray(image, debug)

@@ -145,7 +145,10 @@ def open_image(img_path):
 
 def parse_image(img_path: str, debug):
     image = open_image(img_path)
+    return robust_find_puzzle(image, debug)
 
+
+def robust_find_puzzle(image: np.ndarray, debug):
     # find the puzzle in the image and then
     logger.info(f"image of {image.shape} open")
     puzzle_image, warped = find_puzzle(image, debug=debug)

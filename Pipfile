@@ -12,6 +12,7 @@ paddlepaddle = "==2.3.2"
 paddleocr = ">=2.0.1"
 loguru = "==0.7.0"
 paddleclas = "==2.5.1"
+gradio = "==3.32.0"
 
 [requires]
 python_version = "3.9"
